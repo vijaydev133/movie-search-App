@@ -6,15 +6,15 @@ const MovieDetail = () => {
   //   console.log(id);
   const [data, setdata] = useState();
 
-  async function getData() {
-    const value = await fetch("https://search.imdbot.workers.dev/?tt=" + id);
-    const data = await value.json();
-
-    //   console.log(data);
-    setdata(data);
-    console.log(data?.short?.trailer?.embedUrl);
-  }
   useEffect(() => {
+    async function getData() {
+      const value = await fetch("https://search.imdbot.workers.dev/?tt=" + id);
+      const data = await value.json();
+
+      //   console.log(data);
+      setdata(data);
+      console.log(data?.short?.trailer?.embedUrl);
+    }
     // const value = fetch("https://search.imdbot.workers.dev/?tt=" + id);
     // value
     //   .then((res) => res.json())
@@ -26,7 +26,7 @@ const MovieDetail = () => {
     getData();
   }, []);
 
-  return (
+  return data ? (
     <div className="flex flex-col justify-center items-center  py-10">
       <div className="relative">
         <img className="w-[500px]" src={data?.short?.image} alt="thumbnail" />
@@ -57,6 +57,8 @@ const MovieDetail = () => {
         ""
       )}
     </div>
+  ) : (
+    <h1>loadingg</h1>
   );
 };
 
