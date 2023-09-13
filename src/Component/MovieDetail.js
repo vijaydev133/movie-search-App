@@ -58,7 +58,7 @@ const MovieDetail = () => {
       )}
     </div>
   ) : (
-    <h1>loadingg</h1>
+    <h1 className="text-lg font-bold">loading...</h1>
   );
 };
 
