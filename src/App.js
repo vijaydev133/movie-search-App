@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Navbar from "./Component/Navbar";
 import Header from "./Component/Header";
@@ -47,3 +47,36 @@ const appRouter = createBrowserRouter([
 ]);
 
 root.render(<RouterProvider router={appRouter} />);
+
+// const Comp1 = () => {
+//   const [st, setSt] = useState(0);
+//   const [re, setRe] = useState(4);
+
+//   useEffect(() => {
+//     return () => {
+//       console.log("re component deleted");
+//     };
+//   }, [re]);
+
+//   useEffect(() => {
+//     return () => {
+//       console.log("se component deleted");
+//     };
+//   }, [st]);
+
+//   useEffect(() => {
+//     return () => {
+//       console.log("global component deleted");
+//     };
+//   });
+
+//   return (
+//     <div>
+//       <input type="text" value={re} onChange={(e) => setRe(e.target.value)} />
+//       <h1 onClick={() => setSt((e) => e + 1)}>{st}</h1>
+//       {/* <h1>{re}</h1> */}
+//       {console.log("html rendered")}
+//     </div>
+//   );
+// };
+// root.render(<Comp1 />);
